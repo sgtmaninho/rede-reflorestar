@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rede Reflorestar: calcule sua pegada de carbono e adote mudas nativas do cerrado plantadas no Distrito Federal.">
+    <title>Rede Reflorestar</title>
+
+    <!-- Bootstrap 5 (CSS) e Bootstrap Icons via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Nosso CSS vem depois do Bootstrap para personalizar a marca -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===================== AVISO ===================== -->
+    <div class="alert alert-terra rounded-0 border-0 text-center small py-2 mb-0" role="alert">
+        <i class="bi bi-cloud-drizzle me-1"></i>
+        De novembro a janeiro é a época de plantio no cerrado: as mudas pegam melhor com a chuva.
+    </div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar navbar-expand-xl navbar-dark bg-noite sticky-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand marca" href="#inicio">
+                <span class="marca-selo" aria-hidden="true"></span>
+                Rede<em>Reflorestar</em>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-1 text-nowrap">
+                    <li class="nav-item"><a class="nav-link" href="#quem-somos">Quem somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#especies">Espécies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calculadora">Calculadora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#viveiro">Viveiro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#adote">Adote</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-sm btn-outline-light my-2 my-xl-0 ms-xl-2" id="btnTema" type="button" aria-label="Alternar modo escuro">
+                            <i class="bi bi-moon-stars"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-ipe ms-xl-2" href="https://wa.me/5561986649709?text=Ol%C3%A1!%20Quero%20adotar%20mudas." target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp me-1"></i> Fale conosco
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ===================== CARROSSEL (topo) ===================== -->
+        <section id="inicio">
+            <div id="carrosselTopo" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carrosselTopo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carrosselTopo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carrosselTopo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <!-- Slide 1: troque img/slide-1.svg por uma foto (ex.: img/slide-1.jpg) -->
+                    <div class="carousel-item active slide" style="--foto: url('img/slide-1.svg');">
+                        <div class="container slide-conteudo">
+                            <p class="sobretitulo mb-2">Startup ambiental · Brasília - DF</p>
+                            <h1 class="display-titulo">Cada <span class="text-ipe">raiz</span> devolve o cerrado.</h1>
+                            <p class="lead my-4">Calcule quanto carbono você emite e adote mudas nativas que plantamos e acompanhamos no Distrito Federal.</p>
+                            <div class="d-flex flex-wrap gap-3">
+                                <a href="#calculadora" class="btn btn-ipe btn-lg">Calcular minha pegada</a>
+                                <a href="#adote" class="btn btn-outline-light btn-lg">Adotar mudas</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item slide" style="--foto: url('img/slide-2.svg');">
+                        <div class="container slide-conteudo">
+                            <p class="sobretitulo mb-2">Espécies nativas</p>
+                            <h2 class="display-titulo">Ipê, baru, pequi e buriti.</h2>
+                            <p class="lead my-4">Plantamos só espécies do cerrado, cada uma no ambiente certo: campo, mata ou beira d'água.</p>
+                            <a href="#especies" class="btn btn-ipe btn-lg">Conhecer as espécies</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item slide" style="--foto: url('img/slide-3.svg');">
+                        <div class="container slide-conteudo">
+                            <p class="sobretitulo mb-2">Mutirões abertos</p>
+                            <h2 class="display-titulo">Plante com a gente.</h2>
+                            <p class="lead my-4">Leve a família para um mutirão de plantio. Ferramentas e mudas são por nossa conta.</p>
+                            <a href="#mutiroes" class="btn btn-ipe btn-lg">Ver próximas datas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#carrosselTopo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#carrosselTopo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===================== FAIXA DE NÚMEROS ===================== -->
+        <section class="bg-noite text-white py-4 border-top border-ipe">
+            <div class="container">
+                <div class="row g-4 align-items-center text-center text-lg-start">
+                    <div class="col-12 col-lg-5">
+                        <p class="text-uppercase small texto-capim mb-1">Meta da temporada 2026/2027</p>
+                        <div class="d-flex align-items-baseline justify-content-center justify-content-lg-start gap-2">
+                            <span class="contador-numero" id="contador">3.742</span>
+                            <span class="texto-capim">mudas adotadas</span>
+                        </div>
+                        <div class="progress mt-2" role="progressbar" aria-label="Progresso da meta"
+                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="height: 8px;">
+                            <div class="progress-bar bg-ipe" id="metaBarra" style="width: 0%"></div>
+                        </div>
+                        <p class="small texto-capim mt-1 mb-0" id="metaTexto">0% da meta</p>
+                    </div>
+                    <div class="col-4 col-lg-2 offset-lg-1 numero">
+                        <strong>3</strong><span>etapas por muda</span>
+                    </div>
+                    <div class="col-4 col-lg-2 numero">
+                        <strong>2 anos</strong><span>de acompanhamento</span>
+                    </div>
+                    <div class="col-4 col-lg-2 numero">
+                        <strong>100%</strong><span>nativas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== QUEM SOMOS ===================== -->
+        <section class="quem-somos py-5" id="quem-somos">
+            <div class="container py-lg-5">
+                <div class="row g-4 g-lg-5 align-items-center">
+                    <div class="col-12 col-lg-6">
+                        <img src="img/equipe.svg" class="img-fluid rounded-4 shadow-lg" alt="Mãos plantando uma muda nativa">
+                    </div>
+                    <div class="col-12 col-lg-6 text-white">
+                        <p class="sobretitulo mb-2">Quem somos</p>
+                        <h2 class="titulo-secao">O cerrado é uma floresta de cabeça para baixo.</h2>
+                        <p class="fs-5 texto-capim">
+                            A maior parte das plantas do cerrado vive debaixo da terra. As raízes descem metros
+                            em busca de água e guardam carbono no solo, mesmo quando a seca deixa tudo dourado por cima.
+                        </p>
+                        <p class="texto-capim">
+                            A Rede Reflorestar nasceu em Brasília para juntar quem quer compensar suas emissões
+                            com quem sabe plantar. As mudas vêm do nosso viveiro parceiro, o Viveiro Brasília Delivery, no Jardim Botânico, e
+                            nós acompanhamos cada uma por 2 anos, da cova até ela andar sozinha.
+                        </p>
+                        <a href="#servicos" class="btn btn-ipe mt-2">Ver o que fazemos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SERVIÇOS ===================== -->
+        <section class="py-5" id="servicos">
+            <div class="container py-lg-4">
+                <div class="text-center mx-auto mb-5" style="max-width: 640px;">
+                    <h2 class="titulo-secao text-mata">O que fazemos</h2>
+                    <p class="text-body-secondary mb-0">Do viveiro à área plantada, com relatório para você acompanhar.</p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                    <div class="col">
+                        <div class="card servico h-100 text-center">
+                            <div class="card-body p-4">
+                                <span class="servico-icone"><i class="bi bi-tree"></i></span>
+                                <h3 class="card-title mt-3">Plantio</h3>
+                                <p class="card-text text-body-secondary">Cova adubada, muda nativa e proteção contra formigas e capim.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card servico h-100 text-center">
+                            <div class="card-body p-4">
+                                <span class="servico-icone"><i class="bi bi-droplet-half"></i></span>
+                                <h3 class="card-title mt-3">Manutenção</h3>
+                                <p class="card-text text-body-secondary">Rega na seca, coroamento e replantio das mudas que não vingarem.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card servico h-100 text-center">
+                            <div class="card-body p-4">
+                                <span class="servico-icone"><i class="bi bi-mortarboard"></i></span>
+                                <h3 class="card-title mt-3">Educação</h3>
+                                <p class="card-text text-body-secondary">Oficinas e mutirões em escolas e condomínios sobre o cerrado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card servico h-100 text-center">
+                            <div class="card-body p-4">
+                                <span class="servico-icone"><i class="bi bi-buildings"></i></span>
+                                <h3 class="card-title mt-3">Empresas</h3>
+                                <p class="card-text text-body-secondary">Compensação de carbono com relatório e selo para ações de ESG.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== ESPÉCIES ===================== -->
+        <section class="py-5 bg-capim" id="especies">
+            <div class="container py-lg-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+                    <h2 class="titulo-secao text-mata mb-0">Espécies que plantamos</h2>
+                    <div class="btn-group flex-wrap" role="group" aria-label="Filtrar espécies" id="filtros">
+                        <button class="btn btn-outline-mata active" data-filtro="todas">Todas</button>
+                        <button class="btn btn-outline-mata" data-filtro="fruto">Dão frutos</button>
+                        <button class="btn btn-outline-mata" data-filtro="flor">Floração</button>
+                        <button class="btn btn-outline-mata" data-filtro="agua">Beira d'água</button>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col especie-col" data-tipo="flor">
+                        <div class="card especie h-100 border-0" style="--cor: #e8b500;">
+                            <div class="card-body">
+                                <p class="fst-italic small text-body-secondary mb-1">Handroanthus serratifolius</p>
+                                <h3 class="card-title">Ipê-amarelo</h3>
+                                <p class="card-text">Floresce no auge da seca, de julho a setembro, quando perde as folhas e fica todo amarelo.</p>
+                                <span class="badge especie-tag">Floração</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col especie-col" data-tipo="fruto">
+                        <div class="card especie h-100 border-0" style="--cor: #b8a03a;">
+                            <div class="card-body">
+                                <p class="fst-italic small text-body-secondary mb-1">Caryocar brasiliense</p>
+                                <h3 class="card-title">Pequizeiro</h3>
+                                <p class="card-text">Símbolo do cerrado. O fruto amadurece no período das chuvas, de novembro a fevereiro.</p>
+                                <span class="badge especie-tag">Fruto</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col especie-col" data-tipo="fruto">
+                        <div class="card especie h-100 border-0" style="--cor: #8a5a3c;">
+                            <div class="card-body">
+                                <p class="fst-italic small text-body-secondary mb-1">Dipteryx alata</p>
+                                <h3 class="card-title">Baru</h3>
+                                <p class="card-text">Dá a castanha de baru, nutritiva e cada vez mais procurada. Ótima sombra para o gado.</p>
+                                <span class="badge especie-tag">Fruto</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col especie-col" data-tipo="agua">
+                        <div class="card especie h-100 border-0" style="--cor: #3f7d5a;">
+                            <div class="card-body">
+                                <p class="fst-italic small text-body-secondary mb-1">Mauritia flexuosa</p>
+                                <h3 class="card-title">Buriti</h3>
+                                <p class="card-text">Palmeira das veredas. Onde há buriti, há água: protege nascentes e margens de córregos.</p>
+                                <span class="badge especie-tag">Beira d'água</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col especie-col" data-tipo="fruto flor">
+                        <div class="card especie h-100 border-0" style="--cor: #c9a227;">
+                            <div class="card-body">
+                                <p class="fst-italic small text-body-secondary mb-1">Eugenia dysenterica</p>
+                                <h3 class="card-title">Cagaita</h3>
+                                <p class="card-text">Flores brancas no fim da seca e frutos ácidos e refrescantes, muito usados em sucos.</p>
+                                <span class="badge especie-tag">Fruto e floração</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col especie-col" data-tipo="fruto">
+                        <div class="card especie h-100 border-0" style="--cor: #7a4b2a;">
+                            <div class="card-body">
+                                <p class="fst-italic small text-body-secondary mb-1">Hymenaea stigonocarpa</p>
+                                <h3 class="card-title">Jatobá-do-cerrado</h3>
+                                <p class="card-text">Árvore resistente, de madeira dura. A polpa do fruto vira uma farinha comestível.</p>
+                                <span class="badge especie-tag">Fruto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CALCULADORA ===================== -->
+        <section class="py-5 bg-mata text-white" id="calculadora">
+            <div class="container py-lg-4">
+                <div class="row g-4 g-lg-5 align-items-center">
+                    <div class="col-12 col-lg-7">
+                        <p class="sobretitulo mb-2">Calculadora de pegada</p>
+                        <h2 class="titulo-secao">Quantas mudas a sua casa precisa?</h2>
+                        <p class="texto-capim mb-4">Use números de um mês comum. O consumo de energia está na conta de luz.</p>
+
+                        <form id="calcForm" class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="pessoas" class="form-label">Pessoas na casa</label>
+                                <input type="number" class="form-control" id="pessoas" min="1" value="4">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="energia" class="form-label">Energia (kWh/mês)</label>
+                                <input type="number" class="form-control" id="energia" min="0" value="250">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="km" class="form-label">Carro (km/mês)</label>
+                                <input type="number" class="form-control" id="km" min="0" value="800">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="combustivel" class="form-label">Combustível</label>
+                                <select class="form-select" id="combustivel">
+                                    <option value="gasolina">Gasolina</option>
+                                    <option value="etanol">Etanol</option>
+                                    <option value="eletrico">Elétrico</option>
+                                    <option value="nenhum">Sem carro</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="gas" class="form-label">Botijões de gás/mês</label>
+                                <input type="number" class="form-control" id="gas" min="0" step="0.5" value="1">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="voos" class="form-label">Voos ida e volta/ano</label>
+                                <input type="number" class="form-control" id="voos" min="0" value="1">
+                            </div>
+                            <div class="col-12">
+                                <label for="carne" class="form-label">
+                                    Refeições com carne vermelha por semana: <strong class="text-ipe" id="carneValor">14</strong>
+                                </label>
+                                <input type="range" class="form-range" id="carne" min="0" max="40" value="14">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                        <div class="card bg-noite text-white border-0 text-center" aria-live="polite">
+                            <div class="card-body p-4">
+                                <div class="anel" id="anel">
+                                    <div class="anel-miolo">
+                                        <span class="anel-numero" id="mudas">0</span>
+                                        <span class="anel-rotulo">mudas</span>
+                                    </div>
+                                </div>
+                                <p class="texto-capim">
+                                    <strong class="text-white" id="total">0,0</strong> t de CO₂ por ano ·
+                                    <strong class="text-white" id="porPessoa">0,0</strong> t por pessoa
+                                </p>
+                                <ul class="list-unstyled text-start small mb-4" id="categorias"></ul>
+                                <a href="#adote" class="btn btn-ipe w-100">Adotar essas mudas</a>
+                                <p class="small texto-capim mt-3 mb-0">Estimativa simplificada, para fins educativos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== NOSSO VIVEIRO (vídeo + galeria) ===================== -->
+        <section class="viveiro text-white" id="viveiro">
+            <!-- Vídeo de fundo: coloque um arquivo em video/viveiro.mp4.
+                 Enquanto não houver vídeo, aparece a imagem do "poster". -->
+            <video class="viveiro-video" autoplay muted loop playsinline poster="img/galeria-1.svg" aria-hidden="true">
+                <source src="video/viveiro.mp4" type="video/mp4">
+            </video>
+
+            <div class="container position-relative py-5">
+                <div class="text-center mx-auto mb-5 py-lg-4" style="max-width: 680px;">
+                    <p class="sobretitulo mb-2">Nosso viveiro</p>
+                    <h2 class="titulo-secao">Onde cada muda começa.</h2>
+                    <p class="fs-5 mb-0">Sementes colhidas no próprio cerrado, mudas criadas com cuidado e plantio só na época das chuvas.</p>
+                </div>
+
+                <!-- Galeria: clique numa imagem para ampliar (Modal) -->
+                <div class="row row-cols-2 row-cols-lg-4 g-3 pb-lg-4">
+                    <div class="col">
+                        <button class="galeria-item" type="button" data-foto="img/galeria-1.svg" data-legenda="Mudas em crescimento no viveiro">
+                            <img src="img/galeria-1.svg" alt="Mudas em crescimento no viveiro">
+                            <span>Mudas no viveiro</span>
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="galeria-item" type="button" data-foto="img/galeria-2.svg" data-legenda="Sementes nativas colhidas no cerrado">
+                            <img src="img/galeria-2.svg" alt="Sementes nativas colhidas no cerrado">
+                            <span>Sementes nativas</span>
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="galeria-item" type="button" data-foto="img/galeria-3.svg" data-legenda="Ipê-amarelo florido na seca">
+                            <img src="img/galeria-3.svg" alt="Ipê-amarelo florido na seca">
+                            <span>Ipê florido</span>
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="galeria-item" type="button" data-foto="img/galeria-4.svg" data-legenda="Vereda com buritis protegendo a nascente">
+                            <img src="img/galeria-4.svg" alt="Vereda com buritis protegendo a nascente">
+                            <span>Vereda recuperada</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PLANOS ===================== -->
+        <section class="py-5" id="adote">
+            <div class="container py-lg-4">
+                <div class="text-center mx-auto mb-5" style="max-width: 640px;">
+                    <h2 class="titulo-secao text-mata">Adote mudas todo mês</h2>
+                    <p class="text-body-secondary">Cada muda inclui plantio, cova adubada, rega na seca e 2 anos de acompanhamento. Quanto maior o plano, menor o preço por muda.</p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4 align-items-stretch">
+                    <div class="col">
+                        <div class="card plano h-100">
+                            <div class="card-body d-flex flex-column p-4">
+                                <h3 class="card-title">Broto</h3>
+                                <p class="fw-bold text-terra mb-1">1 muda/mês</p>
+                                <p class="preco mb-0">R$ 39,90<small>/mês</small></p>
+                                <p class="small text-body-secondary">R$ 39,90 por muda</p>
+                                <ul class="lista-plano flex-grow-1">
+                                    <li>Certificado de adoção</li>
+                                    <li>Relatório anual do plantio</li>
+                                </ul>
+                                <button class="btn btn-outline-mata w-100 btn-adotar" data-plano="Broto" data-valor="R$ 39,90">Quero este</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card plano plano-destaque h-100 position-relative">
+                            <span class="badge bg-ipe text-dark position-absolute top-0 start-50 translate-middle px-3 py-2">Mais escolhido</span>
+                            <div class="card-body d-flex flex-column p-4">
+                                <h3 class="card-title text-ipe">Copa</h3>
+                                <p class="fw-bold text-ipe mb-1">3 mudas/mês</p>
+                                <p class="preco mb-0">R$ 99,90<small>/mês</small></p>
+                                <p class="small texto-capim">R$ 33,30 por muda</p>
+                                <ul class="lista-plano flex-grow-1">
+                                    <li>Foto e localização de cada muda</li>
+                                    <li>Relatório a cada 3 meses</li>
+                                    <li>Convite para os mutirões</li>
+                                </ul>
+                                <button class="btn btn-ipe w-100 btn-adotar" data-plano="Copa" data-valor="R$ 99,90">Quero este</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card plano h-100">
+                            <div class="card-body d-flex flex-column p-4">
+                                <h3 class="card-title">Mata</h3>
+                                <p class="fw-bold text-terra mb-1">8 mudas/mês</p>
+                                <p class="preco mb-0">R$ 239,90<small>/mês</small></p>
+                                <p class="small text-body-secondary">R$ 29,99 por muda</p>
+                                <ul class="lista-plano flex-grow-1">
+                                    <li>Tudo do plano Copa</li>
+                                    <li>Selo para empresas</li>
+                                    <li>Placa com seu nome na área</li>
+                                </ul>
+                                <button class="btn btn-outline-mata w-100 btn-adotar" data-plano="Mata" data-valor="R$ 239,90">Quero este</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== MUTIRÕES ===================== -->
+        <section class="py-5 bg-terra text-white" id="mutiroes">
+            <div class="container py-lg-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+                    <h2 class="titulo-secao mb-0">Próximos mutirões</h2>
+                    <p class="mb-0" style="max-width: 460px;">Leve chapéu, água e protetor solar. As ferramentas e as mudas são por nossa conta.</p>
+                </div>
+
+                <div class="table-responsive rounded-3">
+                    <table class="table table-striped table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Data</th>
+                                <th scope="col">Local</th>
+                                <th scope="col">Atividade</th>
+                                <th scope="col">Vagas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold text-nowrap">28/11/2026</td>
+                                <td>Jardim Botânico - DF</td>
+                                <td>Plantio de ipês e baru</td>
+                                <td><span class="badge text-bg-success">40</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-nowrap">12/12/2026</td>
+                                <td>Sobradinho - DF</td>
+                                <td>Recuperação de nascente com buritis</td>
+                                <td><span class="badge text-bg-warning">25</span></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-nowrap">16/01/2027</td>
+                                <td>Planaltina - DF</td>
+                                <td>Plantio de frutíferas nativas</td>
+                                <td><span class="badge text-bg-success">50</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTATO ===================== -->
+        <section class="py-5" id="contato">
+            <div class="container py-lg-4">
+                <div class="row g-4 g-lg-5 align-items-center">
+                    <div class="col-12 col-lg-5">
+                        <h2 class="titulo-grande text-mata">Bora plantar?</h2>
+                        <p class="fs-5 text-body-secondary">Mande sua mensagem para adotar mudas, participar de um mutirão ou levar o projeto para a sua empresa ou escola.</p>
+                        <ul class="list-unstyled contato-lista mt-4">
+                            <li><i class="bi bi-whatsapp"></i> (61) 98664-9709</li>
+                            <li><i class="bi bi-envelope"></i> viveirobrasiliadf@gmail.com</li>
+                            <li><i class="bi bi-clock"></i> Segunda a sexta, das 9h às 17h</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-12 col-lg-7">
+                        <form class="card bg-capim border-0 p-4" id="contatoForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="nome" required minlength="3" placeholder="Seu nome">
+                                    <div class="invalid-feedback">Digite seu nome (pelo menos 3 letras).</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="telefone" class="form-label">Telefone / WhatsApp</label>
+                                    <input type="tel" class="form-control" id="telefone" required placeholder="(61) 90000-0000" pattern="\(\d{2}\) \d{4,5}-\d{4}">
+                                    <div class="invalid-feedback">Use o formato (61) 90000-0000.</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" id="email" required placeholder="voce@exemplo.com">
+                                    <div class="invalid-feedback">Digite um e-mail válido, como nome@exemplo.com.</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="interesse" class="form-label">Quero</label>
+                                    <select class="form-select" id="interesse">
+                                        <option>Adotar mudas</option>
+                                        <option>Participar de um mutirão</option>
+                                        <option>Parceria para empresa ou escola</option>
+                                        <option>Outro assunto</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="mensagem" class="form-label">Mensagem</label>
+                                    <textarea class="form-control" id="mensagem" rows="4" required minlength="10" placeholder="Conte um pouco do que você precisa"></textarea>
+                                    <div class="invalid-feedback">Escreva pelo menos 10 caracteres.</div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-mata w-100">Enviar mensagem</button>
+                                    <div class="alert alert-success mt-3 mb-0" id="formRetorno" hidden></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PERGUNTAS FREQUENTES (Accordion em 2 colunas) ===================== -->
+        <section class="py-5 bg-capim" id="faq">
+            <div class="container py-lg-4">
+                <h2 class="titulo-secao text-mata text-center mb-5">Perguntas frequentes</h2>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6">
+                        <div class="accordion" id="faqEsquerda">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">O que é pegada de carbono?</button>
+                                </h3>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqEsquerda">
+                                    <div class="accordion-body">É a quantidade de gases de efeito estufa, medida em CO₂, que as atividades do dia a dia lançam na atmosfera.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Onde as mudas são plantadas?</button>
+                                </h3>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqEsquerda">
+                                    <div class="accordion-body">Em áreas degradadas do Distrito Federal, como margens de córregos, nascentes e áreas de preservação, sempre com autorização.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Por que só espécies nativas?</button>
+                                </h3>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqEsquerda">
+                                    <div class="accordion-body">Elas já estão adaptadas à seca e ao solo do cerrado, alimentam a fauna local e ajudam a recuperar as nascentes.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="accordion" id="faqDireita">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Como acompanho a minha muda?</button>
+                                </h3>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqDireita">
+                                    <div class="accordion-body">Nos planos Copa e Mata você recebe foto e localização de cada muda e um relatório a cada 3 meses.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">E se a muda morrer?</button>
+                                </h3>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqDireita">
+                                    <div class="accordion-body">Fazemos o replantio sem custo durante os 2 anos de acompanhamento.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">Posso cancelar quando quiser?</button>
+                                </h3>
+                                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqDireita">
+                                    <div class="accordion-body">Sim. A assinatura é mensal e sem fidelidade. As mudas já plantadas continuam sendo acompanhadas.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== LOCALIZAÇÃO (mapa) ===================== -->
+        <section class="py-5 bg-noite text-white" id="localizacao">
+            <div class="container py-lg-4">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-12 col-lg-4">
+                        <p class="sobretitulo mb-2">Viveiro parceiro</p>
+                        <h2 class="titulo-secao">Viveiro Brasília Delivery</h2>
+                        <p class="texto-capim mb-0">É de lá que saem as mudas nativas da Rede Reflorestar, além de sementes, substratos, hortaliças e plantas ornamentais.</p>
+                        <ul class="list-unstyled contato-lista contato-lista-clara mt-4">
+                            <li><i class="bi bi-geo-alt"></i> Condomínio Ville de Montagne, Quadra 15, Jardim Botânico, Brasília - DF, CEP 71680-357</li>
+                            <li><i class="bi bi-whatsapp"></i> (61) 98664-9709</li>
+                            <li><i class="bi bi-envelope"></i> viveirobrasiliadf@gmail.com</li>
+                            <li><i class="bi bi-calendar-week"></i> Retirada com horário agendado, de segunda a sexta, das 9h às 17h</li>
+                            <li><i class="bi bi-truck"></i> Entrega em Brasília, com taxa conforme a região</li>
+                        </ul>
+                        <a href="https://maps.app.goo.gl/yFt9kfAAGyYEA4UX8" target="_blank" rel="noopener" class="btn btn-ipe mt-2">
+                            <i class="bi bi-signpost-2 me-1"></i> Como chegar
+                        </a>
+                    </div>
+                    <div class="col-12 col-lg-8">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden mapa">
+                            <iframe src="https://maps.google.com/maps?q=-15.8412414,-47.8030254&z=16&output=embed"
+                                    title="Mapa do Viveiro Brasília Delivery no Jardim Botânico" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="rodape bg-noite text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-md-5">
+                    <a class="marca text-white text-decoration-none" href="#inicio">
+                        <span class="marca-selo" aria-hidden="true"></span>
+                        Rede<em>Reflorestar</em>
+                    </a>
+                    <p class="texto-capim mt-3 mb-2">Calcule, reduza e compense. Mudas nativas do cerrado plantadas e acompanhadas no Distrito Federal.</p>
+                    <p class="small texto-capim mb-0"><i class="bi bi-geo-alt text-ipe"></i> Viveiro parceiro: Viveiro Brasília Delivery · Jardim Botânico - DF</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <p class="fw-bold mb-2">Navegação</p>
+                    <ul class="list-unstyled rodape-links">
+                        <li><a href="#quem-somos">Quem somos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#adote">Planos</a></li>
+                        <li><a href="#faq">Dúvidas</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-4">
+                    <p class="fw-bold mb-2">Redes sociais</p>
+                    <div class="d-flex gap-2">
+                        <!-- Troque os links pelos seus perfis -->
+                        <a class="rede-social" href="https://wa.me/5561986649709" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a class="rede-social" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a class="rede-social" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <p class="text-center small texto-capim mb-0">
+                &copy; 2026 Rede Reflorestar · Criado por <span class="text-ipe">Edvaldo Maninho</span> · Projeto acadêmico
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5561986649709?text=Ol%C3%A1!%20Quero%20adotar%20mudas." class="whatsapp-flutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- ===================== MODAL: plano escolhido ===================== -->
+    <div class="modal fade" id="modalAdocao" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-mata text-white">
+                    <h5 class="modal-title" id="modalTitulo">Plano escolhido</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-1">Você escolheu o plano <strong id="modalPlano">-</strong>.</p>
+                    <p class="mb-0">Valor mensal: <strong id="modalValor">-</strong></p>
+                    <p class="small text-body-secondary mt-3 mb-0">Mande uma mensagem pelo formulário e retornamos para concluir a adoção.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Voltar</button>
+                    <a href="#contato" class="btn btn-ipe" id="modalIrContato">Ir para o contato</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL: galeria ===================== -->
+    <div class="modal fade" id="modalGaleria" tabindex="-1" aria-labelledby="galeriaLegenda" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-noite text-white border-0">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="galeriaLegenda">Foto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <img src="" alt="" class="img-fluid rounded-3 w-100" id="galeriaFoto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS e depois o nosso script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

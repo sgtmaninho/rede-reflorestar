@@ -1,0 +1,706 @@
+/* =========================================================
+   REDE REFLORESTAR - Personalização do Bootstrap
+   O Bootstrap cuida do layout (grid, navbar, cards, tabela,
+   formulários). Aqui ficam só as cores e detalhes da marca.
+   1) Variáveis   2) Base   3) Classes da marca
+   4) Seções      5) Modo escuro
+   ========================================================= */
+
+
+/* ---------- 1) VARIÁVEIS DA MARCA ---------- */
+:root {
+    --noite:  #0f2419;   /* verde quase preto */
+    --mata:   #1f4a33;   /* verde da mata     */
+    --folha:  #3f7d5a;   /* verde médio       */
+    --ipe:    #f2c230;   /* amarelo do ipê    */
+    --capim:  #e9ead8;   /* capim seco claro (fundos)          */
+    --capim-texto: #e9ead8;   /* texto claro sobre fundo escuro */
+    --terra:  #9c4a2c;   /* terra vermelha    */
+
+    --fonte-titulo: "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
+
+    /* Variáveis do próprio Bootstrap que trocamos */
+    --bs-body-font-family: "Work Sans", system-ui, "Segoe UI", Arial, sans-serif;
+    --bs-body-bg: #f7f7f0;
+    --bs-link-color-rgb: 31, 74, 51;
+}
+
+
+/* ---------- 2) BASE ---------- */
+html {
+    scroll-padding-top: 80px;   /* compensa a navbar fixa */
+}
+
+h1, h2, h3, .card-title, .modal-title {
+    font-family: var(--fonte-titulo);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+.display-titulo {
+    font-size: clamp(56px, 9vw, 108px);
+}
+
+.titulo-secao {
+    font-size: clamp(38px, 5vw, 60px);
+}
+
+.titulo-grande {
+    font-size: clamp(44px, 6vw, 76px);
+}
+
+.sobretitulo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ipe);
+}
+
+
+/* ---------- 3) CLASSES DA MARCA (no estilo do Bootstrap) ---------- */
+
+/* Fundos */
+.bg-noite { background-color: var(--noite) !important; }
+.bg-mata  { background-color: var(--mata) !important; }
+.bg-capim { background-color: var(--capim) !important; }
+.bg-terra { background-color: var(--terra) !important; }
+.bg-ipe   { background-color: var(--ipe) !important; }
+
+/* Textos */
+.text-ipe   { color: var(--ipe) !important; }
+.text-mata  { color: var(--mata) !important; }
+.text-terra { color: var(--terra) !important; }
+.texto-capim { color: var(--capim-texto) !important; }
+
+.border-ipe { border-color: rgba(242, 194, 48, 0.45) !important; }
+
+/* Alerta com a cor da terra */
+.alert-terra {
+    background-color: var(--terra);
+    color: #fff;
+}
+
+/* Botões novos, criados com as variáveis de botão do Bootstrap */
+.btn-ipe {
+    --bs-btn-bg: var(--ipe);
+    --bs-btn-color: var(--noite);
+    --bs-btn-border-color: var(--ipe);
+    --bs-btn-hover-bg: #ffd24d;
+    --bs-btn-hover-color: var(--noite);
+    --bs-btn-hover-border-color: #ffd24d;
+    --bs-btn-active-bg: #e0b020;
+    --bs-btn-active-border-color: #e0b020;
+    font-weight: 700;
+}
+
+.btn-mata {
+    --bs-btn-bg: var(--mata);
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: var(--mata);
+    --bs-btn-hover-bg: var(--folha);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: var(--folha);
+    font-weight: 700;
+}
+
+.btn-outline-mata {
+    --bs-btn-color: var(--mata);
+    --bs-btn-border-color: var(--mata);
+    --bs-btn-hover-bg: var(--mata);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-bg: var(--mata);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: var(--mata);
+    font-weight: 600;
+}
+
+/* Efeito "carimbo" ao passar o mouse nos botões da marca */
+.btn-ipe,
+.btn-mata {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-ipe:hover,
+.btn-mata:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--noite);
+}
+
+/* Logo com anéis feitos em CSS */
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--fonte-titulo);
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.marca em {
+    font-style: normal;
+    color: var(--ipe);
+}
+
+.marca-selo {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, var(--ipe) 0 3px, var(--mata) 3px 6px);
+}
+
+
+/* ---------- 4) SEÇÕES ---------- */
+
+/* Hero: anéis de árvore desenhados com repeating-radial-gradient */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: repeating-radial-gradient(
+        circle,
+        transparent 0 26px,
+        rgba(242, 194, 48, 0.16) 26px 28px,
+        transparent 28px 44px,
+        rgba(233, 234, 216, 0.08) 44px 45px
+    );
+    animation: girar 120s linear infinite;
+}
+
+@keyframes girar {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.contador {
+    background-color: rgba(15, 36, 25, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+.contador-numero {
+    font-family: var(--fonte-titulo);
+    font-weight: 900;
+    font-size: 84px;
+    line-height: 1;
+    color: var(--ipe);
+    font-variant-numeric: tabular-nums;
+}
+
+.progress {
+    background-color: rgba(233, 234, 216, 0.15);
+}
+
+/* Manifesto */
+.fatos strong {
+    font-family: var(--fonte-titulo);
+    font-size: 34px;
+    color: var(--terra);
+    min-width: 90px;
+}
+
+/* Cards de espécies: cada um recebe a cor pela variável --cor */
+.especie {
+    border-top: 8px solid var(--cor) !important;
+    overflow: hidden;
+    transition: transform 0.25s;
+}
+
+.especie:hover {
+    transform: rotate(-1deg) translateY(-6px);
+}
+
+.especie::after {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    right: -60px;
+    bottom: -60px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent 0 9px, var(--cor) 9px 10px);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.especie .card-title {
+    font-size: 34px;
+    color: var(--mata);
+}
+
+.especie-tag {
+    background-color: var(--cor);
+    color: var(--noite);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Calculadora: anel de progresso com conic-gradient */
+.anel {
+    --porcento: 0;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: conic-gradient(var(--ipe) calc(var(--porcento) * 1%), rgba(233, 234, 216, 0.15) 0);
+    display: grid;
+    place-items: center;
+}
+
+.anel-miolo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: var(--noite);
+    display: grid;
+    place-content: center;
+}
+
+.anel-numero {
+    font-family: var(--fonte-titulo);
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--ipe);
+}
+
+.anel-rotulo {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: var(--capim-texto);
+}
+
+.form-range::-webkit-slider-thumb { background-color: var(--ipe); }
+.form-range::-moz-range-thumb     { background-color: var(--ipe); }
+
+/* Planos */
+.plano .card-title {
+    font-size: 40px;
+    color: var(--mata);
+}
+
+.preco {
+    font-family: var(--fonte-titulo);
+    font-weight: 900;
+    font-size: 44px;
+}
+
+.preco small {
+    font-family: var(--bs-body-font-family);
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.lista-plano {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 24px;
+}
+
+.lista-plano li {
+    margin-bottom: 8px;
+}
+
+.lista-plano li::before {
+    content: "✦ ";
+    color: var(--folha);
+}
+
+.plano-destaque {
+    background-color: var(--mata);
+    border-color: var(--mata);
+    color: #fff;
+}
+
+.plano-destaque .lista-plano li::before {
+    color: var(--ipe);
+}
+
+/* Celular */
+@media (max-width: 575.98px) {
+    .marca { font-size: 19px; }
+    .contador-numero { font-size: 64px; }
+    .hero::before { width: 600px; height: 600px; right: -300px; }
+}
+
+/* Menos animação para quem configurou isso no sistema */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ---------- 5) MODO ESCURO ----------
+   O Bootstrap 5.3 troca as cores sozinho quando a tag <html>
+   recebe data-bs-theme="dark". Aqui ajustamos as cores da marca. */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #10140f;
+    --capim: #1d261f;
+    --bs-link-color-rgb: 242, 194, 48;
+}
+
+[data-bs-theme="dark"] .text-mata,
+[data-bs-theme="dark"] .especie .card-title,
+[data-bs-theme="dark"] .plano .card-title {
+    color: #9fd3b0 !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-mata {
+    --bs-btn-color: #9fd3b0;
+    --bs-btn-border-color: #9fd3b0;
+    --bs-btn-hover-color: var(--noite);
+    --bs-btn-hover-bg: #9fd3b0;
+    --bs-btn-active-bg: #9fd3b0;
+    --bs-btn-active-color: var(--noite);
+}
+
+[data-bs-theme="dark"] .plano-destaque .card-title {
+    color: var(--ipe) !important;
+}
+
+
+/* =========================================================
+   6) NOVAS SEÇÕES (versão 3)
+   Carrossel, números, quem somos, serviços, viveiro com vídeo,
+   galeria, FAQ, mapa, rodapé e WhatsApp flutuante
+   ========================================================= */
+
+/* ----- Carrossel do topo ----- */
+.slide {
+    min-height: min(78vh, 680px);
+    /* camada escura por cima da imagem para o texto ficar legível */
+    background:
+        linear-gradient(90deg, rgba(15, 36, 25, 0.88) 0%, rgba(15, 36, 25, 0.55) 55%, rgba(15, 36, 25, 0.15) 100%),
+        var(--foto) center / cover no-repeat,
+        var(--noite);
+    color: #fff;
+}
+
+.slide-conteudo {
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 64px;
+    padding-bottom: 80px;
+}
+
+.slide-conteudo .display-titulo,
+.slide-conteudo .lead {
+    max-width: 680px;
+}
+
+.slide .display-titulo {
+    font-size: clamp(48px, 8vw, 96px);
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 34px;
+    height: 4px;
+    background-color: var(--ipe);
+}
+
+/* ----- Faixa de números ----- */
+.contador-numero {
+    font-size: 56px;
+}
+
+.numero strong {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 1;
+    color: var(--ipe);
+}
+
+.numero span {
+    font-size: 14px;
+    color: var(--capim-texto);
+}
+
+/* ----- Quem somos: imagem de fundo com camada escura ----- */
+.quem-somos {
+    background:
+        linear-gradient(rgba(15, 36, 25, 0.82), rgba(15, 36, 25, 0.92)),
+        url("img/fundo-cerrado.svg") center / cover no-repeat,
+        var(--noite);
+}
+
+/* ----- Serviços ----- */
+.servico {
+    border: 2px solid var(--capim);
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.servico:hover {
+    transform: translateY(-6px);
+    border-color: var(--ipe);
+    box-shadow: 0 14px 30px rgba(15, 36, 25, 0.12);
+}
+
+.servico-icone {
+    display: inline-grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    font-size: 32px;
+    color: var(--noite);
+    background: repeating-radial-gradient(circle, var(--ipe) 0 30px, #f6d36b 30px 36px);
+}
+
+.servico .card-title {
+    font-size: 30px;
+    color: var(--mata);
+}
+
+/* ----- Nosso viveiro: vídeo de fundo ----- */
+.viveiro {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--noite);
+}
+
+.viveiro-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* camada escura sobre o vídeo */
+.viveiro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(15, 36, 25, 0.78), rgba(15, 36, 25, 0.9));
+}
+
+.viveiro .container {
+    z-index: 1;
+}
+
+/* ----- Galeria ----- */
+.galeria-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: none;
+    aspect-ratio: 1 / 1;
+    cursor: zoom-in;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.galeria-item span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 28px 12px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+.galeria-item:hover img,
+.galeria-item:focus-visible img {
+    transform: scale(1.08);
+}
+
+.galeria-item:focus-visible {
+    outline: 3px solid var(--ipe);
+    outline-offset: 3px;
+}
+
+/* ----- Contato ----- */
+.contato-lista li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.contato-lista i {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--capim);
+    color: var(--mata);
+}
+
+.contato-lista-clara i {
+    background-color: rgba(242, 194, 48, 0.15);
+    color: var(--ipe);
+}
+
+/* ----- FAQ (accordion) com as cores da marca ----- */
+.accordion {
+    --bs-accordion-active-bg: var(--mata);
+    --bs-accordion-active-color: #fff;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(242, 194, 48, 0.4);
+    --bs-accordion-border-radius: 12px;
+    --bs-accordion-inner-border-radius: 12px;
+}
+
+.accordion-button {
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);   /* seta branca no item aberto */
+}
+
+.accordion-item + .accordion-item {
+    margin-top: 10px;
+    border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+}
+
+.accordion-item {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+/* ----- Mapa ----- */
+.mapa {
+    border: 2px solid rgba(242, 194, 48, 0.4);
+    background-color: #1a2e22;
+}
+
+.mapa iframe {
+    border: 0;
+}
+
+/* ----- Rodapé ----- */
+.rodape-links a {
+    color: var(--capim-texto);
+    text-decoration: none;
+    line-height: 2;
+}
+
+.rodape-links a:hover {
+    color: var(--ipe);
+}
+
+.rede-social {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(233, 234, 216, 0.3);
+    color: #fff;
+    font-size: 20px;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.rede-social:hover {
+    background-color: var(--ipe);
+    color: var(--noite);
+    transform: translateY(-3px);
+}
+
+/* ----- Botão flutuante do WhatsApp ----- */
+.whatsapp-flutuante {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1030;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: #25d366;
+    color: #fff;
+    font-size: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s;
+}
+
+.whatsapp-flutuante:hover {
+    color: #fff;
+    transform: scale(1.08);
+}
+
+/* Navbar fica mais baixa ao rolar a página (classe colocada pelo script.js) */
+.navbar {
+    transition: padding 0.25s, box-shadow 0.25s;
+}
+
+.navbar.rolando {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ----- Ajustes de celular ----- */
+@media (max-width: 575.98px) {
+    .slide {
+        min-height: 560px;
+        background:
+            linear-gradient(rgba(15, 36, 25, 0.75), rgba(15, 36, 25, 0.9)),
+            var(--foto) center / cover no-repeat,
+            var(--noite);
+    }
+
+    .contador-numero {
+        font-size: 44px;
+    }
+
+    .whatsapp-flutuante {
+        right: 14px;
+        bottom: 14px;
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+    }
+}
+
+/* ----- Modo escuro nas novas seções ----- */
+[data-bs-theme="dark"] .servico {
+    border-color: #2a352c;
+}
+
+[data-bs-theme="dark"] .servico .card-title {
+    color: #9fd3b0;
+}
+
+[data-bs-theme="dark"] .contato-lista i {
+    color: #9fd3b0;
+}
+
+[data-bs-theme="dark"] .accordion {
+    --bs-accordion-active-bg: #24452f;
+}
