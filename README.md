@@ -5,7 +5,7 @@
 ## Descrição do projeto
 Protótipo de site de uma startup ambiental de Brasília. A pessoa calcula a pegada de carbono da casa e adota mudas nativas do cerrado, que são plantadas e acompanhadas por 2 anos em áreas degradadas do Distrito Federal.
 
-Projeto acadêmico do curso Programador Java, feito com HTML, Bootstrap 5 e JavaScript.
+Projeto acadêmico do curso Programador Java (SENAI), feito com HTML, Bootstrap 5 e JavaScript.
 
 ## Seções do site
 - **Carrossel:** 3 slides (plantio, espécies nativas, mutirões)
@@ -72,4 +72,4 @@ Baixe a pasta e abra o `index.html` no navegador, ou use a extensão Live Server
 Os fatores de emissão da calculadora são médias aproximadas, usadas apenas para fins educativos. Preços, planos e datas de mutirões são exemplos do protótipo. Os dados de endereço e contato são do Viveiro Brasília Delivery, viveiro parceiro.
 
 ## Autor
-**Edvaldo Pinto Maninho Júnior**, curso Programador Java.
+**3º Sgt Edvaldo Pinto Maninho Júnior**, curso Programador Java (SENAI), Professor Edgar.
